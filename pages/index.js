@@ -54,8 +54,8 @@ const App = () => {
     setCollapsed(collapsed);
   };
   const style = {
-    WebkitTransition: all .2s;
-    transition: all .2s;
+    WebkitTransition: 'all .2s';
+    transition: 'all .2s';
   }
   return (
     <Row>
