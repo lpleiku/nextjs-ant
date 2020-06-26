@@ -65,7 +65,7 @@ const App = () => {
         <Menu.Item key="3">nav 3</Menu.Item>
       </Menu>
     </Header>
-    <Layou style={{display: 'flex'}}>
+    <Layout style={{display: 'flex'}}>
       <Sider width={200} className="site-layout-background">
         <Menu
           mode="inline"
