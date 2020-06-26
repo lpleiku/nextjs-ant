@@ -17,7 +17,8 @@ import {
   FileOutlined,
   TeamOutlined,
   UserOutlined,
-  LaptopOutlined
+  LaptopOutlined,
+  NotificationOutlined
 } from '@ant-design/icons';
 const { Option } = Select;
 const { TextArea } = Input;
