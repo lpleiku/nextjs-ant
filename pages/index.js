@@ -54,9 +54,7 @@ const App = () => {
     setCollapsed(collapsed);
   };
   return (
-    <Row>
-    <Col flex='auto'>
-      <Layout style={{ minHeight: '100vh' }}>
+<Layout style={{ minHeight: '100vh', display: 'flex !important' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
@@ -166,8 +164,6 @@ const App = () => {
         </Footer>
       </Layout>
     </Layout>
-    </Col>
-    </Row>
   );
 };
 
