@@ -53,9 +53,13 @@ const App = () => {
   const onCollapse = collapsed => {
     setCollapsed(collapsed);
   };
+  const style = {
+    WebkitTransition: all .2s;
+    transition: all .2s;
+  }
   return (
     <Row>
-      <Col flex={collapsed ? '80px' : '200px'}>
+      <Col flex={collapsed ? '80px' : '200px'} style={style}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
@@ -78,7 +82,7 @@ const App = () => {
           </Menu>
         </Sider>
       </Col>
-      <Col flex='auto'>
+      <Col flex='auto' style={style}>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
