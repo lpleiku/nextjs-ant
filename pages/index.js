@@ -1,104 +1,174 @@
-import { Form, Select, InputNumber, Switch, Slider, Button } from 'antd'
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
+import {
+  Input,
+  Radio,
+  Select,
+  Switch,
+  Checkbox,
+  Layout,
+  Row,
+  Col,
+  Menu,
+  Breadcrumb
+} from 'antd';
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  FileOutlined,
+  TeamOutlined,
+  UserOutlined
+} from '@ant-design/icons';
+const { Option } = Select;
+const { TextArea } = Input;
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 
-// Custom DatePicker that uses Day.js instead of Moment.js
-import DatePicker from '../components/DatePicker'
-
-import { SmileFilled } from '@ant-design/icons'
-
-import Link from 'next/link'
-
-const FormItem = Form.Item
-const Option = Select.Option
-
-const content = {
-  marginTop: '100px',
-}
-
-export default function Home() {
+const App = () => {
+  const [collapsed, setCollapsed] = useState(false);
+  const onChange = e => {
+    if (e.target.type === 'checkbox') {
+      console.log('checked', e.target.checked);
+    } else {
+      console.log('value', e.target.value);
+    }
+    console.log('name', e.target.name);
+  };
+  const onSelectChange = (value, option) => {
+    console.log('value', value);
+    console.log('option', option);
+  };
+  const onSwitch = (checked, e) => {
+    console.log('checked', checked);
+    console.log('e', e.currentTarget.name);
+  };
+  const onPressEnter = e => {
+    console.log('value', e.target.value);
+    console.log('name', e.target.name);
+  };
+  const options = [
+    { label: 'Apple', value: 'apple', style: { flex: 1, display: 'block' } },
+    { label: 'Pear', value: 'pear', style: { flex: 1 } },
+    { label: 'Orange', value: 'orange', disabled: true, style: { flex: 1 } }
+  ];
+  const onCollapse = collapsed => {
+    setCollapsed(collapsed);
+  };
   return (
-    <div style={content}>
-      <div className="text-center mb-5">
-        <Link href="#">
-          <a className="logo mr-0">
-            <SmileFilled size={48} strokeWidth={1} />
-          </a>
-        </Link>
-
-        <p className="mb-0 mt-3 text-disabled">Welcome to the world !</p>
-      </div>
-      <div>
-        <Form layout="horizontal">
-          <FormItem
-            label="Input Number"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+        <div className="logo" />
+        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu.Item key="1" icon={<PieChartOutlined />}>
+            Option 1
+          </Menu.Item>
+          <Menu.Item key="2" icon={<DesktopOutlined />}>
+            Option 2
+          </Menu.Item>
+          <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+            <Menu.Item key="3">Tom</Menu.Item>
+            <Menu.Item key="4">Bill</Menu.Item>
+            <Menu.Item key="5">Alex</Menu.Item>
+          </SubMenu>
+          <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
+            <Menu.Item key="6">Team 1</Menu.Item>
+            <Menu.Item key="8">Team 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="9" icon={<FileOutlined />} />
+        </Menu>
+      </Sider>
+      <Layout className="site-layout">
+        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Content style={{ margin: '0 16px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>User</Breadcrumb.Item>
+            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+          </Breadcrumb>
+          <div
+            className="site-layout-background"
+            style={{ padding: 24, minHeight: 360 }}
           >
-            <InputNumber
-              size="large"
-              min={1}
-              max={10}
-              style={{ width: 100 }}
-              defaultValue={3}
-              name="inputNumber"
+            <Switch defaultChecked name="switch" onChange={onSwitch} />
+            <Checkbox name="checkbox" onChange={onChange}>
+              Checkbox
+            </Checkbox>
+            <Input
+              name="input"
+              onChange={onChange}
+              placeholder="Basic usage"
+              onPressEnter={onPressEnter}
             />
-          </FormItem>
-
-          <FormItem
-            label="Switch"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
-          >
-            <Switch defaultChecked name="switch" />
-          </FormItem>
-
-          <FormItem
-            label="Slider"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
-          >
-            <Slider defaultValue={70} />
-          </FormItem>
-
-          <FormItem
-            label="Select"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
-          >
+            <TextArea
+              name="textarea"
+              onChange={onChange}
+              placeholder="Basic usage"
+              onPressEnter={onPressEnter}
+            />
             <Select
-              size="large"
               defaultValue="lucy"
-              style={{ width: 192 }}
-              name="select"
+              style={{ width: '100%' }}
+              onChange={onSelectChange}
+              mode="multiple"
             >
-              <Option value="jack">jack</Option>
-              <Option value="lucy">lucy</Option>
-              <Option value="disabled" disabled>
-                disabled
+              <Option key="name" value="jack">
+                Jack
               </Option>
-              <Option value="yiminghe">yiminghe</Option>
+              <Option key="name" value="lucy">
+                Lucy
+              </Option>
+              <Option key="name" value="disabled" disabled>
+                Disabled
+              </Option>
+              <Option key="name" value="Yiminghe">
+                yiminghe
+              </Option>
             </Select>
-          </FormItem>
+            <Radio.Group
+              style={{ display: 'flex' }}
+              name="radio"
+              defaultValue="apple"
+              onChange={onChange}
+              options={options}
+            />
+            <Radio.Group
+              name="radio"
+              defaultValue="orange"
+              onChange={onChange}
+              options={options}
+            />
+            <Row gutter={[16, 0]}>
+              <Col flex="1">
+                <label>Username:</label>
+                <Input />
+              </Col>
+              <Col flex="1">
+                <label>Username:</label>
+                <Input.Password />
+              </Col>
+            </Row>
+            <Row>
+              <Col flex="1">
+                <label>Username:</label>
+                <Input />
+              </Col>
+            </Row>
+            <Row>
+              <Col flex="1">
+                <label>Username:</label>
+                <Input.Password />
+              </Col>
+            </Row>
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Ant Design ©2018 Created by Ant UED
+        </Footer>
+      </Layout>
+    </Layout>
+  );
+};
 
-          <FormItem
-            label="DatePicker"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 8 }}
-          >
-            <DatePicker name="startDate" />
-          </FormItem>
-          <FormItem
-            style={{ marginTop: 48 }}
-            wrapperCol={{ span: 8, offset: 8 }}
-          >
-            <Button size="large" type="primary" htmlType="submit">
-              OK
-            </Button>
-            <Button size="large" style={{ marginLeft: 8 }}>
-              Cancel
-            </Button>
-          </FormItem>
-        </Form>
-      </div>
-    </div>
-  )
-}
+export default App;
+
+ReactDOM.render(<App />, document.getElementById('container'));
