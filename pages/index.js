@@ -54,7 +54,6 @@ const App = () => {
     setCollapsed(collapsed);
   };
   return (
-    <Layout style={{ minHeight: '100vh', display: 'flex !important' }}>
       <Row>
         <Col flex='200px'>
           <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
@@ -169,7 +168,6 @@ const App = () => {
           </Layout>
         </Col>
       </Row>
-    </Layout>
   );
 };
 
