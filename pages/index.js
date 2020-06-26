@@ -55,7 +55,7 @@ const App = () => {
   };
   return (
     <Row>
-      <Col flex='200px'>
+      <Col flex={collapsed ? '80px' : '200px'}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
