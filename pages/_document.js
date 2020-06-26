@@ -11,6 +11,11 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="stylesheet" href="/antd.min.css"/>
+          <style>
+            .ant-layout {
+              display: flex;
+            }
+          </style>
         </Head>
         <body>
           <Main />
