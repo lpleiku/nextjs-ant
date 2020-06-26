@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="stylesheet" href="/antd.min.css">
+          <link rel="stylesheet" href="/antd.min.css"/>
         </Head>
         <body>
           <Main />
