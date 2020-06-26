@@ -9,9 +9,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-            <link rel="stylesheet" href="antd.min.css" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
