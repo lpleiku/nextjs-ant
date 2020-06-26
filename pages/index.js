@@ -56,6 +56,7 @@ const App = () => {
     setCollapsed(collapsed);
   };
   return (
+    <>
     <Layout>
     <Header className="header">
       <div className="logo" />
@@ -65,6 +66,7 @@ const App = () => {
         <Menu.Item key="3">nav 3</Menu.Item>
       </Menu>
     </Header>
+  </Layout>
     <Layout style={{display: 'flex'}}>
       <Sider width={200} className="site-layout-background">
         <Menu
@@ -93,8 +95,8 @@ const App = () => {
           </SubMenu>
         </Menu>
       </Sider>
-      <Layout style={{ padding: '0 24px 24px', width: 'calc(100% - 200px)' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
+      <div>
+    <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
@@ -178,9 +180,9 @@ const App = () => {
               </Col>
             </Row>
         </Content>
-      </Layout>
+    </div>
     </Layout>
-  </Layout>
+    </>
   );
 };
 
