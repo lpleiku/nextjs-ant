@@ -22,7 +22,9 @@ const { Option } = Select;
 const { TextArea } = Input;
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
-
+const ProLayout = dynamic(() => import('@ant-design/pro-layout'), {
+  ssr: false,
+})
 const App = () => {
   const [collapsed, setCollapsed] = useState(false);
   const onChange = e => {
@@ -54,7 +56,7 @@ const App = () => {
     setCollapsed(collapsed);
   };
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <ProLayout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
@@ -163,7 +165,7 @@ const App = () => {
           Ant Design ©2018 Created by Ant UED
         </Footer>
       </Layout>
-    </Layout>
+    </ProLayout>
   );
 };
 
