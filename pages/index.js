@@ -16,7 +16,8 @@ import {
   PieChartOutlined,
   FileOutlined,
   TeamOutlined,
-  UserOutlined
+  UserOutlined,
+  LaptopOutlined
 } from '@ant-design/icons';
 const { Option } = Select;
 const { TextArea } = Input;
