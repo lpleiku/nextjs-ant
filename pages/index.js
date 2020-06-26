@@ -93,7 +93,7 @@ const App = () => {
           </SubMenu>
         </Menu>
       </Sider>
-      <Layout style={{ padding: '0 24px 24px'; width: 'calc(100% - 200px)' }}>
+      <Layout style={{ padding: '0 24px 24px', width: 'calc(100% - 200px)' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>
