@@ -55,6 +55,7 @@ const App = () => {
   };
   return (
     <Row>
+    <Col flex='auto'>
       <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo" />
@@ -165,6 +166,7 @@ const App = () => {
         </Footer>
       </Layout>
     </Layout>
+    </Col>
     </Row>
   );
 };
