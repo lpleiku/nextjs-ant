@@ -60,7 +60,7 @@ const App = () => {
   return (
     <Row>
       <Col flex={collapsed ? '80px' : '200px'} style={style}>
-        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ height: '100vh' }}>
+        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ height: '100vh', background: '#001529' }}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1" icon={<PieChartOutlined />}>
